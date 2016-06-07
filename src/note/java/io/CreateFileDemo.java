@@ -3,7 +3,11 @@ package note.java.io;
 import java.io.File;
 import java.io.IOException;
 
-public class FileDemo {
+/**
+ * 创建文件Demo
+ *
+ */
+public class CreateFileDemo {
 
 	/**
 	 * 创建一个文件，如果文件夹不存在执行创建文件夹后再创建文件
@@ -42,7 +46,7 @@ public class FileDemo {
 	}
 
 	public static void main(String[] args) {
-		boolean b = createNewFile("C:/abc/测试", "T-测试.txt");
+		boolean b = createNewFile("D:/demotest", "The测试.txt");
 		if (b) {
 			System.out.println("成功！");
 		} else {
