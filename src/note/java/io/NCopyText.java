@@ -11,7 +11,7 @@ import java.io.IOException;
  * 拷贝文本文件Demo
  *
  */
-public class CopyText {
+public class NCopyText {
 	public static void main(String[] args) {
 
 		File fIn, fOut = null;

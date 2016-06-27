@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bookstore ISBN="7-111-19149-2">
+	<!--记录书本的信息 -->
+	<book ISBN="7-111-19149-2" Type="必修课">
+		<title>数据结构- -</title>
+		<author>严蔚敏</author>
+		<price>30.00</price>
+	</book>
+	<book ISBN="7-111-19149-3" Type="必修课">
+		<title>路由型与交换型互联网基础</title>
+		<author>程庆梅</author>
+		<price>27.00</price>
+	</book>
+	<book ISBN="7-111-19149-4" Type="必修课">
+		<title>计算机硬件技术基础</title>
+		<author>李继灿</author>
+		<price>25.00</price>
+	</book>
+	<book ISBN="7-111-19149-5" Type="必修课">
+		<title>软件质量保证与管理</title>
+		<author>朱少民</author>
+		<price>39.00</price>
+	</book>
+	<book ISBN="7-111-19149-6" Type="必修课">
+		<title>算法设计与分析</title>
+		<author>王红梅</author>
+		<price>23.00</price>
+	</book>
+	<book ISBN="7-111-19149-1" Type="选修课">
+		<title>计算机操作系统</title>
+		<author>Bioebei</author>
+		<price>28.00</price>
+	</book>
+</bookstore>

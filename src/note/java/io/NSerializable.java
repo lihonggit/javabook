@@ -12,7 +12,7 @@ import java.io.Serializable;
  * 序列化对象Demo
  *
  */
-public class SerializableDemo {
+public class NSerializable {
 	static String path = "D:/demotest/SerializableObj.txt";
 
 	public static void main(String[] args) {

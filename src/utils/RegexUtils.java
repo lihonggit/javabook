@@ -1,8 +1,12 @@
-package note.java.util.regex;
+package utils;
 
 import java.util.regex.Pattern;
 
-public class _RegexUtils {
+/**
+ * 正则表达式帮助类
+ *
+ */
+public class RegexUtils {
 
 	/**
 	 * 数字是否为判断

@@ -1,4 +1,4 @@
-package note.java.io.se;
+package demo;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import note.java.util.regex._RegexUtils;
+import utils.RegexUtils;
 
 /**
  * 读取lrc类型文件并按时规定间显示歌词
@@ -22,7 +22,7 @@ public class Geci {
 		Gc lrcData = new Gc();
 		Date tempDate = null;
 		String content = null;
-		content = getFileContent("d:/test/wcs.lrc");
+		content = getFileContent("file/安河桥.lrc");
 		content = content.replaceAll("\\]", "");
 
 		boolean b = true;
@@ -34,7 +34,7 @@ public class Geci {
 			String thisTime = null;
 			String thisValue = null;
 			// 分两种方式取值，通过判断每行前两个字符串就行了
-			if (thisLine.length() > 2 && _RegexUtils.isInteger(thisLine.substring(0, 2))) {
+			if (thisLine.length() > 2 && RegexUtils.isInteger(thisLine.substring(0, 2))) {
 				// 歌词
 				thisTime = thisLine.length() > 8 ? thisLine.substring(0, 9) : null;
 				thisValue = thisLine.length() > 8 ? thisLine.substring(8, thisLine.length()) : "";

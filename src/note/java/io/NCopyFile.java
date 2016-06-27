@@ -13,7 +13,7 @@ import java.io.OutputStream;
  * 拷贝文件Demo
  *
  */
-public class CopyFile {
+public class NCopyFile {
 
 	/**
 	 * 普通字节流方式
@@ -112,7 +112,7 @@ public class CopyFile {
 		String targetPath = "F:\\MySql_Copy.zip";
 
 		// 普通方式
-		boolean b = CopyFile.copyFile(srcPath, targetPath);
+		boolean b = NCopyFile.copyFile(srcPath, targetPath);
 
 		// 缓冲方式
 		// boolean b = CopyFile.copyFileBuffer(srcPath, targetPath);

@@ -1,21 +1,18 @@
-package note.java.io;
+package utils;
 
 import java.io.File;
 import java.io.IOException;
 
 /**
- * 创建文件Demo
+ * 文件操作帮助类 
  *
  */
-public class CreateFileDemo {
+public class FileUtils {
 
 	/**
 	 * 创建一个文件，如果文件夹不存在执行创建文件夹后再创建文件
-	 * 
-	 * @param filePath
-	 *            文件路径
-	 * @param fileName
-	 *            文件名
+	 * @param filePath 文件路径
+	 * @param fileName 文件名
 	 * @return
 	 */
 	public static boolean createNewFile(String filePath, String fileName) {
@@ -43,14 +40,5 @@ public class CreateFileDemo {
 
 		// 默认创建失败
 		return false;
-	}
-
-	public static void main(String[] args) {
-		boolean b = createNewFile("D:/demotest", "The测试.txt");
-		if (b) {
-			System.out.println("成功！");
-		} else {
-			System.out.println("失败！");
-		}
 	}
 }

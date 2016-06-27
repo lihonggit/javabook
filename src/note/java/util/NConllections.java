@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class ConllectionsDemo {
+public class NConllections {
 	public static void main(String[] args) {
 		List<Object[]> list1 = new ArrayList<>();
 		list1.add(new Object[] { "张三", 16 });
