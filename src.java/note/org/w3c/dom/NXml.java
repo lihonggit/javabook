@@ -20,7 +20,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
- * 操作xml
+ * 使用DOM方式操作xml
  *
  */
 public class NXml {
@@ -59,7 +59,7 @@ public class NXml {
 					// 如果不判断，dom会把标签之间的空白也算进去
 					if (node.getNodeType() == Node.ELEMENT_NODE) {
 						System.out.print(node.getNodeName() + ":\t");
-						// 这里也可用getTextContent()，但不能直接getNodeValue()，会返回null，因为dom不知道你这个Node是最小的节点
+						// 这里也可用getTextContent()，但不能直接getNodeValue()，会返回null，因为dom会把这个节点下的内容看成一个元素
 						System.out.println(node.getFirstChild().getNodeValue());
 					}
 				}

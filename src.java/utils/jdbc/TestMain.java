@@ -10,5 +10,6 @@ public class TestMain {
 		for (Map<String, Object> map : values) {
 			System.out.println(map.get("NICK_NAME"));
 		}
+		JdbcUtils.findMoreRefResult("", null, TestMain.class);
 	}
 }
