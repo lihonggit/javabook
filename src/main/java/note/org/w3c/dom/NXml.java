@@ -1,8 +1,8 @@
 package note.org.w3c.dom;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -18,6 +18,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 
 /**
  * 使用DOM方式操作xml
@@ -34,8 +35,8 @@ public class NXml {
 		try {
 			builder = factory.newDocumentBuilder();
 
-			File file = new File("file/demo.xml");
-			Document document = builder.parse(file);
+			Document document = builder
+					.parse(new InputSource(new InputStreamReader(new FileInputStream("file/demo.xml"), "utf-8")));
 			// 得到根元素
 			Element rootElement = document.getDocumentElement();
 
@@ -73,6 +74,7 @@ public class NXml {
 
 	/**
 	 * 写入
+	 * 
 	 * @param document
 	 * @param filename
 	 */

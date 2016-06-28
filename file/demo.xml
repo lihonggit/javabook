@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="gbk" standalone="no"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <bookstore ISBN="7-111-19149-2">
 	<!--记录书本的信息 -->
 	<book ISBN="7-111-19149-2" Type="必修课">

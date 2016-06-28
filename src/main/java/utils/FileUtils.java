@@ -1,6 +1,8 @@
 package utils;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 
 /**
@@ -40,5 +42,21 @@ public class FileUtils {
 
 		// 默认创建失败
 		return false;
+	}
+	
+	public static String getFileContent(String fileName) {
+		StringBuffer returnStr = new StringBuffer("");
+		try {
+			File file = new File(fileName);
+			BufferedReader reader = new BufferedReader(new FileReader(file));
+			String tempString = "";
+			while ((tempString = reader.readLine()) != null) {
+				returnStr.append(tempString);
+			}
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return returnStr.toString();
 	}
 }

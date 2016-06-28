@@ -20,6 +20,7 @@ public class NXml {
 	/**
 	 * 读取xml
 	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void readXml() {
 		try {
 			Document document = reader.read(new InputStreamReader(new FileInputStream("file/demo.xml"), "UTF-8"));
