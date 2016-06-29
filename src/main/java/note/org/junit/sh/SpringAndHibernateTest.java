@@ -1,17 +1,12 @@
 package note.org.junit.sh;
 
-import java.util.Date;
-
+import org.hibernate.internal.SessionFactoryImpl;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
-/**
- * 整合Spring+JUnit
- * 
- */
-public class SpringTest {
+public class SpringAndHibernateTest {
 	private static ApplicationContext applicationContext = null;
 
 	// 加载Spring
@@ -20,9 +15,10 @@ public class SpringTest {
 		applicationContext = new FileSystemXmlApplicationContext("config/applicationContext-mvc.xml");
 	}
 
+	// 这里有毒！！！
 	@Test
-	public void testSpring() {
-		Date date = (Date) applicationContext.getBean("date");
-		System.out.println(date.toString());
+	public void testSpringAndHibernate() {
+		SessionFactoryImpl impl = (SessionFactoryImpl) applicationContext.getBean("sessionFactory");
+		System.out.println(impl);
 	}
 }
