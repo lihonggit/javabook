@@ -2,7 +2,7 @@ package note.org.xml;
 
 import org.junit.Test;
 
-public class TXml {
+public class XmlTest {
 	@Test
 	public void testPerformance() {
 
