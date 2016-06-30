@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
@@ -25,18 +26,27 @@ import org.xml.sax.InputSource;
  *
  */
 public class NXml {
-	private static DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-	private static DocumentBuilder builder = null;
-
 	/**
-	 * 读取
+	 * 创建DocumentBuilder对象
+	 * @return
 	 */
-	public static void readXml() {
+	private DocumentBuilder getDocumentBuilder() {
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder = null;
 		try {
 			builder = factory.newDocumentBuilder();
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		}
+		return builder;
+	}
 
-			Document document = builder
-					.parse(new InputSource(new InputStreamReader(new FileInputStream("file/demo.xml"), "utf-8")));
+	/**
+	 * 解析
+	 */
+	public void xmlParse() {
+		try {
+			Document document = getDocumentBuilder().parse(new InputSource(new InputStreamReader(new FileInputStream("file/demo.xml"), "utf-8")));
 			// 得到根元素
 			Element rootElement = document.getDocumentElement();
 
@@ -78,9 +88,8 @@ public class NXml {
 	 * @param document
 	 * @param filename
 	 */
-	public static void writeXML(Document document, String filename) {
+	public void writeXML(Document document, String filename) {
 		try {
-			builder = factory.newDocumentBuilder();
 			document.normalize();
 
 			/** 将document中的内容写入文件中 */
@@ -98,12 +107,10 @@ public class NXml {
 		}
 	}
 
-	public static void updateXML() {
+	public void updateXML() {
 		try {
-			builder = factory.newDocumentBuilder();
-
 			FileInputStream fi = new FileInputStream("file/demo.xml");
-			Document document = builder.parse(fi);
+			Document document = getDocumentBuilder().parse(fi);
 
 			// 得到某个元素(第一个元素节点的第一个节点)
 			Element element = (Element) document.getElementsByTagName("book").item(0);
@@ -117,8 +124,44 @@ public class NXml {
 		}
 	}
 
+	/**
+	 * 创建一个Xml
+	 */
+	public void createXml() {
+		// 创建文档
+		Document document = getDocumentBuilder().newDocument();
+		// 创建一个根节点
+		Element rootElement = document.createElement("bookStore");
+		// 创建一个子节点
+		Element bookElement = document.createElement("book");
+		// 向子节点中添加属性
+		bookElement.setAttribute("id", "1");
+
+		// 创建book属性并赋值
+		Element elementTitle = document.createElement("title");
+		elementTitle.setTextContent("隔壁的老李");
+		Element elementAuthor = document.createElement("author");
+		elementAuthor.setTextContent("老王");
+		Element elementPrice = document.createElement("price");
+		elementPrice.setTextContent("2.50");
+		// 加入到book节点
+		bookElement.appendChild(elementTitle);
+		bookElement.appendChild(elementAuthor);
+		bookElement.appendChild(elementPrice);
+
+		// 将子节点添加到根节点中
+		rootElement.appendChild(bookElement);
+		// 将根节点添加到文档中
+		document.appendChild(rootElement);
+
+		// 生成
+		writeXML(document, "myDomXml.xml");
+	}
+
 	public static void main(String[] args) {
-		readXml();
-		// updateXML();
+		NXml xml = new NXml();
+		// xml.xmlParse();
+		// xml.updateXML();
+		xml.createXml();
 	}
 }

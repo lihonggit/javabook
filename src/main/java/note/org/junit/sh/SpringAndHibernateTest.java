@@ -4,7 +4,7 @@ import org.hibernate.internal.SessionFactoryImpl;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SpringAndHibernateTest {
 	private static ApplicationContext applicationContext = null;
@@ -12,13 +12,13 @@ public class SpringAndHibernateTest {
 	// 加载Spring
 	@BeforeClass
 	public static void setUpBeforeClass() {
-		applicationContext = new FileSystemXmlApplicationContext("config/applicationContext-mvc.xml");
+		applicationContext = new ClassPathXmlApplicationContext("note/org/junit/sh/config/applicationContext-mvc.xml");
 	}
 
-	// 这里有毒！！！
 	@Test
 	public void testSpringAndHibernate() {
 		SessionFactoryImpl impl = (SessionFactoryImpl) applicationContext.getBean("sessionFactory");
 		System.out.println(impl);
 	}
+
 }

@@ -11,4 +11,6 @@
 		<property name="configLocation"
 			value="classpath:note/org/junit/sh/config/hibernate.cfg.xml" />
 	</bean>
+	<bean id="date1" class="java.util.Date"></bean>
+	<bean id="date2" class="java.util.Date"></bean>
 </beans>

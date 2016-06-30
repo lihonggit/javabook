@@ -18,10 +18,10 @@ public class NXml {
 	private static SAXReader reader = new SAXReader();
 
 	/**
-	 * 读取xml
+	 * 解析Xml
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public static void readXml() {
+	public static void xmlParse() {
 		try {
 			Document document = reader.read(new InputStreamReader(new FileInputStream("file/demo.xml"), "UTF-8"));
 
@@ -53,7 +53,13 @@ public class NXml {
 		}
 	}
 	
+	/**
+	 * 创建Xml
+	 */
+	public void createXml() {
+	}
+
 	public static void main(String[] args) {
-		readXml();
+		xmlParse();
 	}
 }
