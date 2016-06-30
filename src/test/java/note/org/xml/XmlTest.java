@@ -7,11 +7,11 @@ public class XmlTest {
 	public void testPerformance() {
 
 		long startTime = System.currentTimeMillis();
-		note.org.dom4j.NXml.xmlParse();
+		new note.org.dom4j.NXml().xmlParse();
 		System.err.println("DOM4J耗时：\t" + (System.currentTimeMillis() - startTime));
 
 		startTime = System.currentTimeMillis();
-		note.org.jdom2.NXml.readXml();
+		new note.org.jdom2.NXml().readXml();
 		System.err.println("JDOM2耗时：\t" + (System.currentTimeMillis() - startTime));
 
 		startTime = System.currentTimeMillis();

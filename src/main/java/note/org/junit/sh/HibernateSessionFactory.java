@@ -9,6 +9,7 @@ import org.hibernate.cfg.Configuration;
  * thread of execution. Follows the Thread Local Session pattern, see
  * {@link http://hibernate.org/42.html }.
  */
+@SuppressWarnings("deprecation")
 public class HibernateSessionFactory {
 
 	/**
