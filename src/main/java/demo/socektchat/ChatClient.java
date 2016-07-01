@@ -91,12 +91,6 @@ public class ChatClient extends Frame {
 	 */
 	public void close() {
 		try {
-			if (dataInputStream != null) {
-				dataInputStream.close();
-			}
-			if (dataOutputStream != null) {
-				dataOutputStream.close();
-			}
 			if (socket != null) {
 				socket.close();
 			}
