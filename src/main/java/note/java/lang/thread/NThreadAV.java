@@ -27,7 +27,7 @@ class Actor extends Thread {
 		int count = 0;
 		while (keep) {
 			System.out.println(getName() + "展开了第" + ++count + "轮攻势！");
-			if (100 == count)
+			if (20 == count)
 				keep = false;
 			try {
 				Thread.sleep(100);
@@ -52,7 +52,7 @@ class Actress implements Runnable {
 		int count = 0;
 		while (keep) {
 			System.out.println(Thread.currentThread().getName() + "进行了第" + ++count + "轮防守！");
-			if (100 == count)
+			if (20 == count)
 				keep = false;
 			try {
 				Thread.sleep(100);
