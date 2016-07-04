@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 /**
  * 文件操作帮助类 
@@ -39,11 +41,11 @@ public class FileUtils {
 		} else {
 			return true;
 		}
- 
+
 		// 默认创建失败
 		return false;
 	}
-	
+
 	public static String getFileContent(String fileName) {
 		StringBuffer returnStr = new StringBuffer("");
 		try {
@@ -52,6 +54,24 @@ public class FileUtils {
 			String tempString = "";
 			while ((tempString = reader.readLine()) != null) {
 				returnStr.append(tempString);
+			}
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return returnStr.toString();
+	}
+
+	public static String getFileContent(InputStream inputStream, boolean isWrap) {
+		StringBuffer returnStr = new StringBuffer("");
+		try {
+			BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+			String tempString = "";
+			while ((tempString = reader.readLine()) != null) {
+				returnStr.append(tempString);
+				if (isWrap) {
+					returnStr.append("\n");
+				}
 			}
 			reader.close();
 		} catch (IOException e) {

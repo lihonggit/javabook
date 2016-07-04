@@ -51,13 +51,20 @@ public class ChatServer {
 		} catch (IOException e) {
 			System.out.println("与客户端连接断开，服务器退出！");
 		} finally {
-			try {
-				if (serverSocket != null) {
-					serverSocket.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
+			closeServer();
+		}
+	}
+
+	/**
+	 * 关闭服务器
+	 */
+	private void closeServer() {
+		try {
+			if (serverSocket != null) {
+				serverSocket.close();
 			}
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -102,12 +109,6 @@ public class ChatServer {
 
 		private void close() {
 			try {
-				if (dataInputStream != null) {
-					dataInputStream.close();
-				}
-				if (dataOutputStream != null) {
-					dataOutputStream.close();
-				}
 				if (socket != null) {
 					socket.close();
 				}
