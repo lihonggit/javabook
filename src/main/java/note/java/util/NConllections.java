@@ -34,14 +34,15 @@ public class NConllections {
 				}
 				// 目测返回-1,0,1
 				int cp = i2.compareTo(i1);
-				// %1标识输出位置,$5表示占5个字符位,\n表示换行
-				System.out.printf("%1$5s%2$5s%3$5s\n", i1, i2, cp);
+				// %nd：占位，n表示占多少位
+				System.out.printf("%5d%5d%5d\n", i1, i2, cp);
 				return cp;
 			}
 		});
 
+		System.out.println("按照数字大小排序：");
 		for (Object[] objects : list1) {
-			System.out.printf("%1$s\t%2$10s\n", objects[0], objects[1]);
+			System.out.printf("%s\t\t%d\n", objects[0], objects[1]);
 		}
 	}
 }
