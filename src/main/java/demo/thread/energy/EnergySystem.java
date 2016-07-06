@@ -1,4 +1,4 @@
-﻿import java.sql.Time;
+﻿package demo.thread.energy;
 
 /**
  * 宇宙的能量系统 遵循能量守恒定律： 能量不会凭空创生或消失，只会从一处转移到另一处
@@ -39,7 +39,7 @@ public class EnergySystem {
 			// return;
 			// while循环，保证条件不满足时任务都会被条件阻挡
 			// 而不是继续竞争CPU资源
-			while (energyBoxes[from] < amount) {
+			if (energyBoxes[from] < amount) {
 				try {
 					// 条件不满足, 将当前线程放入Wait Set
 					// long time = System.nanoTime();

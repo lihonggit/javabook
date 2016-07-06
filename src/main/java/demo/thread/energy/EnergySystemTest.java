@@ -1,4 +1,5 @@
-﻿
+﻿package demo.thread.energy;
+
 
 public class EnergySystemTest {
 

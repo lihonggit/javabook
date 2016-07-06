@@ -1,4 +1,5 @@
-﻿public class EnergyTransferTask implements Runnable {
+﻿package demo.thread.energy;
+public class EnergyTransferTask implements Runnable {
 
 	// 共享的能量世界
 	private EnergySystem energySystem;
