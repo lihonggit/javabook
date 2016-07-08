@@ -34,10 +34,11 @@ class ChildThread extends Thread {
 	public void run() {
 		System.out.println("子线程开始...");
 		// 如果线程没中断
-		while (!this.isInterrupted()) {
+		// this.interrupt() 效果一样的
+		while (!Thread.interrupted()) {
 			try {
-				// 就是这里，如果设置成1000，很可能程序会正常停止，但是如果设置成2000，就会出错！
-				Thread.sleep(1500);
+				// 就是这里，如果设置成1000，很可能程序会正常停止，但是如果设置成2000，就会出错,该线程并不会停止！
+				Thread.sleep(2000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
