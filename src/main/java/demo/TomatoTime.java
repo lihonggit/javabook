@@ -1,12 +1,20 @@
 package demo;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Frame;
+import java.awt.Insets;
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
@@ -24,6 +32,10 @@ import javax.swing.UIManager;
  */
 public class TomatoTime extends JFrame {
 	private static final long serialVersionUID = 6627698653356375972L;
+	// 鼠标按下时窗体位置
+	private Point press = new Point();
+	// this
+	private JFrame frame = null;
 
 	static {
 		try {
@@ -42,8 +54,8 @@ public class TomatoTime extends JFrame {
 	 * 初始化界面
 	 */
 	private void initFrame() {
-		setTitle("番茄时钟 v1.0");
-		setSize(420, 160);
+		frame = this;
+		setSize(520, 268);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setLayout(new FlowLayout());
@@ -52,14 +64,26 @@ public class TomatoTime extends JFrame {
 
 		JButton workBtn = new JButton("25:00");
 		JButton restBtn = new JButton("5:00");
-		JButton closeBtn = new JButton("关闭");
+		JButton closeBtn = new JButton("×");
+		JButton hiddenBtn = new JButton("—");
 		workBtn.setFont(new Font("", 1, 45));
 		restBtn.setFont(new Font("", 1, 45));
-		workBtn.setPreferredSize(new Dimension(200, 123));
-		restBtn.setPreferredSize(new Dimension(200, 123));
+		closeBtn.setFont(new Font("", 1, 75));
+		hiddenBtn.setFont(new Font("", 1, 75));
+		workBtn.setPreferredSize(new Dimension(200, 76));
+		restBtn.setPreferredSize(new Dimension(200, 76));
+		closeBtn.setPreferredSize(new Dimension(200, 76));
+		hiddenBtn.setPreferredSize(new Dimension(200, 76));
+
+		JLabel titleLable = new JLabel("番茄时钟 v1.0");
+		titleLable.setForeground(Color.white);
+		titleLable.setHorizontalAlignment(JLabel.CENTER);
+		titleLable.setPreferredSize(new Dimension(520, 30));
+		add(titleLable, BorderLayout.NORTH);
+		add(hiddenBtn);
+		add(closeBtn);
 		add(workBtn);
 		add(restBtn);
-		add(closeBtn);
 
 		// 绑定业务事件
 		workBtn.addActionListener(new ActionListener() {
@@ -80,6 +104,31 @@ public class TomatoTime extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
+			}
+		});
+		// 最小化事件
+		hiddenBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setExtendedState(Frame.ICONIFIED | getExtendedState());
+			}
+		});
+		// 窗体的鼠标按下事件
+		this.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// 记录按下的坐标
+				press.x = e.getX();
+				press.y = e.getY();
+			}
+		});
+		// 窗体的鼠标拖动事件
+		this.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseDragged(MouseEvent e) {
+				Point p = frame.getLocation();
+				// 窗口当前的位置 + 鼠标当前在窗口的位置 - 鼠标按下的时候在窗口的位置
+				frame.setLocation(p.x + e.getX() - press.x, p.y + e.getY() - press.y);
 			}
 		});
 
@@ -161,6 +210,33 @@ public class TomatoTime extends JFrame {
 			}
 		}
 
+	}
+
+	/**
+	 * 最小化
+	 * Fix the bug "jframe undecorated cover taskbar when maximized". See:
+	 * http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4737788
+	 *
+	 * @param state
+	 */
+	@Override
+	public void setExtendedState(int state) {
+
+		if ((state & java.awt.Frame.MAXIMIZED_BOTH) == java.awt.Frame.MAXIMIZED_BOTH) {
+			Rectangle bounds = getGraphicsConfiguration().getBounds();
+			Rectangle maxBounds = null;
+			// Check to see if this is the 'primary' monitor
+			// The primary monitor should have screen coordinates of (0,0)
+			if (bounds.x == 0 && bounds.y == 0) {
+				Insets screenInsets = getToolkit().getScreenInsets(getGraphicsConfiguration());
+				maxBounds = new Rectangle(screenInsets.left, screenInsets.top, bounds.width - screenInsets.right - screenInsets.left, bounds.height - screenInsets.bottom - screenInsets.top);
+			} else {
+				// Not the primary monitor, reset the maximized bounds...
+				maxBounds = null;
+			}
+			super.setMaximizedBounds(maxBounds);
+		}
+		super.setExtendedState(state);
 	}
 
 	public static void main(String[] args) {

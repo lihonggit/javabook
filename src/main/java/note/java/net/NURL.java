@@ -11,7 +11,7 @@ import java.net.URL;
 public class NURL {
 	public static void main(String[] args) {
 		try {
-			URL url = new URL("http://www.baidu.com/");
+			URL url = new URL("http://scyuanxi.com/caipu/default.html");
 			InputStream inputStream = url.openStream();
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
 			String tempString = "";
