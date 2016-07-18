@@ -1,7 +1,7 @@
 package note.java.lang.thread;
 
 /**
- * interrupt:中断线程,不要用来停止线程操作！
+ * interrupt:中断线程（这是一个错误的示例，不要用来停止线程操作！）
  * （JavaDoc:如果当线程如果调用了某些方法，比如说调用了sleep()后而进入了一种阻塞的状态之时，此时如果这个线程再被调用了interrupt()
  * ， 它会产生两个结果：
  * 1.他的中断状态被清除cleared，而不是被设置，那么线程的isInterrupted()方法就不能返回一个表示是否被中断的正确状态，
