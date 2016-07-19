@@ -1,4 +1,4 @@
-package demo;
+package demo.swing;
 
 import java.awt.EventQueue;
 import java.awt.Point;
