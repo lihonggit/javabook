@@ -1,4 +1,4 @@
-package note.java.lang.thread.exception;
+package note.java.lang.exception;
 
 /**
  * 运行时异常:发生时向外抛出异常，并中断当前流程,并且一直往外面抛，直到有try catch捕获它
