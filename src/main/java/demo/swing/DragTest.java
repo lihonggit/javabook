@@ -1,4 +1,4 @@
-package demo;
+package demo.swing;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
