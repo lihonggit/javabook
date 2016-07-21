@@ -6,6 +6,7 @@ import java.util.concurrent.Future;
 
 /**
  * 子线程异常的捕获
+ * 但是这样有个弊端：get()是一个阻塞方法，会导致主线程阻塞
  *
  */
 public class NThreadException {

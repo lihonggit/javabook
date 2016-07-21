@@ -1,10 +1,10 @@
-package note.java.lang.thread.pool;
+package note.java.lang.string;
 
 /**
- * 请在cmd控制台执行
- *
+ * 命令行不换行效果
+ * (请在cmd控制台执行)
  */
-public class TimerTest {
+public class NStringProgress {
 	private final static String BACKSPACES = getBackspaces(62);
 	private static int i = 0;
 	private static int range = 300;
