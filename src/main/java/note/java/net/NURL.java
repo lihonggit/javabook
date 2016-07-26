@@ -11,8 +11,9 @@ import java.net.URL;
 public class NURL {
 	public static void main(String[] args) {
 		try {
-			for (int i = 0; i < 100; i++) {
-				URL url = new URL("http://localhost:7070/MetaFscm/login/monitor/push/status");
+//				URL url = new URL("http://localhost:7070/MetaFscm/login/monitor/push/status");
+//				URL url = new URL("http://localhost:7070/MetaFscm/login/monitor/push/status");
+				URL url = new URL("http://test.sfdhb.com");
 
 //				 URL url = new URL("http://localhost:7070/MetaFscm/login/monitor/push");
 				InputStream inputStream = url.openStream();
@@ -23,8 +24,7 @@ public class NURL {
 				}
 				bufferedReader.close();
 				// System.out.println(FileUtils.getFileContent(url.openStream(), true));
-				Thread.sleep(1000);
-			}
+//				Thread.sleep(1000);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
