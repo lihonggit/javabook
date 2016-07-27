@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 策略模式 (计算策略)
  */
-public class _Tactics {
+public class _Main {
 	private static List<Good> goods = new ArrayList<>();
 
 	public static void main(String[] args) {

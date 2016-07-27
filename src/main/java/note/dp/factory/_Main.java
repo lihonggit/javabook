@@ -1,6 +1,6 @@
 package note.dp.factory;
 
-public class _Factory {
+public class _Main {
 	public static void main(String[] args) {
 		RainbowSuper rainbowSuper1 = RainbowSuper.getInstance("三色");
 		rainbowSuper1.show();
