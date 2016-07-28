@@ -6,6 +6,6 @@ package note.dp;
  * 2.新手使用不当，容易被反噬。要慢慢学，不要生拉硬搬式套用，要多写代码多总结对比学习和理解
  * 3.若习得些许神通，编写的代码将更加容易维护、拓展、复用，可谓强身健体好处多多
  */
-public class _DesignPatterns {
+public class DesignPatterns {
 
 }

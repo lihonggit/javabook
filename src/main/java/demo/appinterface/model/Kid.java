@@ -1,4 +1,4 @@
-package demo.gson.model;
+package demo.appinterface.model;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import java.util.List;
  */
 public class Kid {
 	private String userName; // 用户名
-	private String age; // 年龄
-	private String sex; // 性别
+	private int age; // 年龄
+	private boolean married; // 是否已婚
 	private List<Lollipop> lollipops; // 棒棒糖集合
 
 	public String getUserName() {
@@ -20,20 +20,20 @@ public class Kid {
 		this.userName = userName;
 	}
 
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
 
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 
-	public String getSex() {
-		return sex;
+	public boolean getMarried() {
+		return married;
 	}
 
-	public void setSex(String sex) {
-		this.sex = sex;
+	public void setMarried(boolean married) {
+		this.married = married;
 	}
 
 	public List<Lollipop> getLollipops() {

@@ -1,4 +1,4 @@
-package demo.gson.model;
+package demo.appinterface.model;
 
 /**
  * 测试用 棒棒糖
