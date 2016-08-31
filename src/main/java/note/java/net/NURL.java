@@ -13,7 +13,7 @@ public class NURL {
 		try {
 //				URL url = new URL("http://localhost:7070/MetaFscm/login/monitor/push/status");
 //				URL url = new URL("http://localhost:7070/MetaFscm/login/monitor/push/status");
-				URL url = new URL("http://test.sfdhb.com");
+				URL url = new URL("http://test.sfdhb.com/");
 
 //				 URL url = new URL("http://localhost:7070/MetaFscm/login/monitor/push");
 				InputStream inputStream = url.openStream();
