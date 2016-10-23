@@ -11,6 +11,15 @@ public class PostData {
 	// 包装
 	private Map<String, Object> bz = null;
 
+	public Map<String, Object> do11() throws JSONException {
+		bz.put("userName", "11");
+		bz.put("passWord", "11");
+		bz.put("longitudes", "11");
+		bz.put("phoneNo", "11");
+		
+		return bz;
+	}
+	
 	public PostData() {
 		bz = new HashMap<String, Object>();
 		if (DsbInterfaceTest.URL_HEADER.indexOf("192.168") != -1 || DsbInterfaceTest.URL_HEADER.indexOf("localhost") != -1) {
@@ -22,11 +31,6 @@ public class PostData {
 		}
 	}
 
-	public Map<String, Object> do11() throws JSONException {
-		bz.put("source", "11");
-
-		return bz;
-	}
 
 	public Map<String, Object> do103() throws JSONException {
 		bz.put("source", "103");
